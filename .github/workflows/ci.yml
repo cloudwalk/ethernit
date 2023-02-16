@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: cargo fmt --check
+      - run: cargo test
+
+      - uses: actions-rs/clippy-check@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          args: -- -D warnings
+
+      - uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release --all-features --examples
