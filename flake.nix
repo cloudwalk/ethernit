@@ -9,7 +9,7 @@
     rust-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, flake-utils, rust-overlay }: 
+  outputs = { self, nixpkgs, flake-utils, rust-overlay }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
@@ -17,14 +17,14 @@
           overlays = [ rust-overlay.overlays.default ];
         };
         rust-version = "1.68.0";
-        in
-  {
-    devShell = pkgs.mkShell {
-        nativeBuildInputs = with pkgs; [
+      in {
+        devShell = pkgs.mkShell {
+          nativeBuildInputs = with pkgs;
+            [
               (rust-bin.stable.${rust-version}.default.override {
                 extensions = [ "rust-src" "clippy" "rustfmt" ];
               })
-        ];
-      };
-  });
+            ];
+        };
+      });
 }
