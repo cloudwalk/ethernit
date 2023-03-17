@@ -1,27 +1,25 @@
 [package]
-name = "infinitecard-web3"
+name = "ethernit"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
-ethabi = "17.1.0"
-ethereum-types = "0.14.1"
-futures = "0.3.26"
-hex = "0.4.3"
-hex-literal = "0.3.4"
-nanoid = "0.4.0"
-serde = { version = "1.0.137", features = ["derive"] }
-serde_json = "1.0.81"
-tokio = { version = "1.25.0", features = ["rt-multi-thread", "macros", "signal", "sync", "time"] }
-tokio-tungstenite = { version = "0.17.1", features = ["rustls-tls-webpki-roots"] }
-tracing = "0.1.37"
-actix = "0.13.0"
+ethabi = "17.1"
+ethereum-types = "0.14"
+futures = "0.3"
+hex = "0.4"
+hex-literal = "0.3"
+nanoid = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tokio = { version = "1.25", features = ["rt-multi-thread", "macros", "signal", "sync", "time"] }
+tokio-tungstenite = { version = "0.17", features = ["rustls-tls-webpki-roots"] }
+tracing = "0.1"
+actix = "0.13"
 
 ## Error Handling
-eyre = "0.6.8"
-thiserror = "1.0.38"
+eyre = "0.6"
+thiserror = "1.0"
 
 ## async
-async-trait = "0.1.64"
+async-trait = "0.1"
